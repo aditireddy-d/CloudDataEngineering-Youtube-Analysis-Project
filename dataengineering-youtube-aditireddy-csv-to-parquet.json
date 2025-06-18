@@ -1,0 +1,307 @@
+{
+	"jobConfig": {
+		"name": "dataengineering-youtube-aditireddy-csv-to-parquet",
+		"description": "",
+		"role": "arn:aws:iam::177890019778:role/dataengineering-youtube-aditireddy-glue-s3-role",
+		"command": "glueetl",
+		"version": "4.0",
+		"runtime": null,
+		"workerType": "G.1X",
+		"numberOfWorkers": 10,
+		"maxCapacity": 10,
+		"jobRunQueuingEnabled": false,
+		"maxRetries": 0,
+		"timeout": 2880,
+		"maxConcurrentRuns": 1,
+		"security": "none",
+		"scriptName": "dataengineering-youtube-aditireddy-csv-to-parquet.py",
+		"scriptLocation": "s3://aws-glue-assets-177890019778-us-east-1/scripts/",
+		"language": "python-3",
+		"spark": true,
+		"sparkConfiguration": "standard",
+		"jobParameters": [],
+		"tags": [],
+		"jobMode": "DEVELOPER_MODE",
+		"createdOn": "2025-06-17T15:12:43.400Z",
+		"developerMode": true,
+		"connectionsList": [],
+		"temporaryDirectory": "s3://aws-glue-assets-177890019778-us-east-1/temporary/",
+		"glueHiveMetastore": true,
+		"etlAutoTuning": true,
+		"metrics": true,
+		"observabilityMetrics": true,
+		"bookmark": "job-bookmark-enable",
+		"sparkPath": "s3://aws-glue-assets-177890019778-us-east-1/sparkHistoryLogs/",
+		"flexExecution": false,
+		"minFlexWorkers": null,
+		"maintenanceWindow": null
+	},
+	"dag": {
+		"node-1750173894790": {
+			"nodeId": "node-1750173894790",
+			"dataPreview": false,
+			"previewAmount": 0,
+			"inputs": [
+				"node-1750173894789"
+			],
+			"name": "originalData",
+			"generatedNodeName": "originalData_node1750173894790",
+			"classification": "Transform",
+			"type": "SelectFromCollection",
+			"index": 0,
+			"parentsValid": true,
+			"calculatedType": "",
+			"codeGenVersion": 2
+		},
+		"node-1750173401892": {
+			"nodeId": "node-1750173401892",
+			"dataPreview": false,
+			"previewAmount": 0,
+			"inputs": [],
+			"name": "Amazon S3",
+			"generatedNodeName": "AmazonS3_node1750173401892",
+			"classification": "DataSource",
+			"type": "S3",
+			"isCatalog": false,
+			"format": "csv",
+			"paths": [
+				"s3://dataengineering-youtube-aditireddy/youtube/raw_statistics/"
+			],
+			"compressionType": null,
+			"exclusions": [],
+			"groupFiles": null,
+			"groupSize": null,
+			"recurse": true,
+			"maxBand": null,
+			"maxFilesInBand": null,
+			"additionalOptions": {
+				"boundedSize": null,
+				"boundedFiles": null,
+				"enableSamplePath": false,
+				"samplePath": "s3://dataengineering-youtube-aditireddy/youtube/raw_statistics/region=ca/CAvideos.csv",
+				"boundedOption": null
+			},
+			"separator": ",",
+			"escaper": "",
+			"quoteChar": "\"",
+			"multiline": null,
+			"withHeader": true,
+			"writeHeader": null,
+			"skipFirst": null,
+			"optimizePerformance": false,
+			"outputSchemas": [
+				[
+					{
+						"key": "video_id",
+						"fullPath": [
+							"video_id"
+						],
+						"type": "string",
+						"glueStudioType": null,
+						"children": null
+					},
+					{
+						"key": "trending_date",
+						"fullPath": [
+							"trending_date"
+						],
+						"type": "string",
+						"glueStudioType": null,
+						"children": null
+					},
+					{
+						"key": "title",
+						"fullPath": [
+							"title"
+						],
+						"type": "string",
+						"glueStudioType": null,
+						"children": null
+					},
+					{
+						"key": "channel_title",
+						"fullPath": [
+							"channel_title"
+						],
+						"type": "string",
+						"glueStudioType": null,
+						"children": null
+					},
+					{
+						"key": "category_id",
+						"fullPath": [
+							"category_id"
+						],
+						"type": "string",
+						"glueStudioType": null,
+						"children": null
+					},
+					{
+						"key": "publish_time",
+						"fullPath": [
+							"publish_time"
+						],
+						"type": "string",
+						"glueStudioType": null,
+						"children": null
+					},
+					{
+						"key": "tags",
+						"fullPath": [
+							"tags"
+						],
+						"type": "string",
+						"glueStudioType": null,
+						"children": null
+					},
+					{
+						"key": "views",
+						"fullPath": [
+							"views"
+						],
+						"type": "string",
+						"glueStudioType": null,
+						"children": null
+					},
+					{
+						"key": "likes",
+						"fullPath": [
+							"likes"
+						],
+						"type": "string",
+						"glueStudioType": null,
+						"children": null
+					},
+					{
+						"key": "dislikes",
+						"fullPath": [
+							"dislikes"
+						],
+						"type": "string",
+						"glueStudioType": null,
+						"children": null
+					},
+					{
+						"key": "comment_count",
+						"fullPath": [
+							"comment_count"
+						],
+						"type": "string",
+						"glueStudioType": null,
+						"children": null
+					},
+					{
+						"key": "thumbnail_link",
+						"fullPath": [
+							"thumbnail_link"
+						],
+						"type": "string",
+						"glueStudioType": null,
+						"children": null
+					},
+					{
+						"key": "comments_disabled",
+						"fullPath": [
+							"comments_disabled"
+						],
+						"type": "string",
+						"glueStudioType": null,
+						"children": null
+					},
+					{
+						"key": "ratings_disabled",
+						"fullPath": [
+							"ratings_disabled"
+						],
+						"type": "string",
+						"glueStudioType": null,
+						"children": null
+					},
+					{
+						"key": "video_error_or_removed",
+						"fullPath": [
+							"video_error_or_removed"
+						],
+						"type": "string",
+						"glueStudioType": null,
+						"children": null
+					},
+					{
+						"key": "description",
+						"fullPath": [
+							"description"
+						],
+						"type": "string",
+						"glueStudioType": null,
+						"children": null
+					}
+				]
+			],
+			"calculatedType": "",
+			"codeGenVersion": 2
+		},
+		"node-1750173894789": {
+			"nodeId": "node-1750173894789",
+			"dataPreview": false,
+			"previewAmount": 0,
+			"inputs": [
+				"node-1750173401892"
+			],
+			"name": "EvaluateDataQualityMultiFrame",
+			"generatedNodeName": "EvaluateDataQualityMultiFrame_node1750173894789",
+			"classification": "Transform",
+			"type": "EvaluateDataQualityMultiFrame",
+			"ruleset": "Rules = [\n    # RowCount stays above 60% of previous 10 runs\n    RowCount > avg(last(10))*0.6,\n\n    # ColumnCount does not drop\n    ColumnCount >= max(last(1))\n]",
+			"output": "EvaluationResults",
+			"publishingOptions": {
+				"evaluationContext": "EvaluateDataQuality_node1750172341165",
+				"cloudWatchMetricsEnabled": false,
+				"resultsS3Prefix": "",
+				"resultsPublishingEnabled": true
+			},
+			"stopJobOnFailureOptions": {
+				"stopJobOnFailureTiming": null
+			},
+			"additionalOptions": {
+				"performanceTuning.caching": "CACHE_NOTHING"
+			},
+			"parentsValid": true,
+			"calculatedType": "",
+			"codeGenVersion": 2
+		},
+		"node-1750173596906": {
+			"nodeId": "node-1750173596906",
+			"dataPreview": false,
+			"previewAmount": 0,
+			"inputs": [
+				"node-1750173894790"
+			],
+			"name": "Amazon S3",
+			"generatedNodeName": "AmazonS3_node1750173596906",
+			"classification": "DataSink",
+			"type": "S3",
+			"streamingBatchInterval": 100,
+			"format": "glueparquet",
+			"compression": "snappy",
+			"numberTargetPartitions": "0",
+			"path": "s3://dataengineering-youtube-cleansed-aditireddy/youtube/raw_statistics/",
+			"partitionKeys": [],
+			"schemaChangePolicy": {
+				"enableUpdateCatalog": false,
+				"updateBehavior": null,
+				"database": null,
+				"table": null
+			},
+			"updateCatalogOptions": "none",
+			"autoDataQuality": {
+				"isEnabled": false,
+				"evaluationContext": null
+			},
+			"calculatedType": "",
+			"codeGenVersion": 2
+		}
+	},
+	"hasBeenSaved": false,
+	"usageProfileName": null,
+	"script": "import sys\nfrom awsglue.transforms import *\nfrom awsglue.utils import getResolvedOptions\nfrom pyspark.context import SparkContext\nfrom awsglue.context import GlueContext\nfrom awsglue.job import Job\nfrom awsglue.dynamicframe import DynamicFrame\n\n# Get job name\nargs = getResolvedOptions(sys.argv, ['JOB_NAME'])\n\n# Initialize contexts\nsc = SparkContext()\nglueContext = GlueContext(sc)\nspark = glueContext.spark_session\njob = Job(glueContext)\njob.init(args['JOB_NAME'], args)\n\n################## Data Source with Predicate Pushdown ##################\npredicate_pushdown = \"region in ('ca','gb','us')\"\n\ndatasource0 = glueContext.create_dynamic_frame.from_catalog(\n    database = \"dataengineering-youtube\", \n    table_name = \"raw_statistics\", \n    transformation_ctx = \"datasource0\",\n    push_down_predicate = predicate_pushdown\n)\n\n################## Apply Mapping ##################\napplymapping1 = ApplyMapping.apply(\n    frame = datasource0,\n    mappings = [\n        (\"video_id\", \"string\", \"video_id\", \"string\"),\n        (\"trending_date\", \"string\", \"trending_date\", \"string\"),\n        (\"title\", \"string\", \"title\", \"string\"),\n        (\"channel_title\", \"string\", \"channel_title\", \"string\"),\n        (\"category_id\", \"long\", \"category_id\", \"long\"),\n        (\"publish_time\", \"string\", \"publish_time\", \"string\"),\n        (\"tags\", \"string\", \"tags\", \"string\"),\n        (\"views\", \"long\", \"views\", \"long\"),\n        (\"likes\", \"long\", \"likes\", \"long\"),\n        (\"dislikes\", \"long\", \"dislikes\", \"long\"),\n        (\"comment_count\", \"long\", \"comment_count\", \"long\"),\n        (\"thumbnail_link\", \"string\", \"thumbnail_link\", \"string\"),\n        (\"comments_disabled\", \"boolean\", \"comments_disabled\", \"boolean\"),\n        (\"ratings_disabled\", \"boolean\", \"ratings_disabled\", \"boolean\"),\n        (\"video_error_or_removed\", \"boolean\", \"video_error_or_removed\", \"boolean\"),\n        (\"description\", \"string\", \"description\", \"string\"),\n        (\"region\", \"string\", \"region\", \"string\")\n    ],\n    transformation_ctx = \"applymapping1\"\n)\n\n################## Clean Schema and Drop Nulls ##################\nresolvechoice2 = ResolveChoice.apply(\n    frame = applymapping1, \n    choice = \"make_struct\", \n    transformation_ctx = \"resolvechoice2\"\n)\n\ndropnullfields3 = DropNullFields.apply(\n    frame = resolvechoice2, \n    transformation_ctx = \"dropnullfields3\"\n)\n\n################## Coalesce and Write to S3 ##################\ndatasink1 = dropnullfields3.toDF().coalesce(1)\ndf_final_output = DynamicFrame.fromDF(datasink1, glueContext, \"df_final_output\")\n\ndatasink4 = glueContext.write_dynamic_frame.from_options(\n    frame = df_final_output,\n    connection_type = \"s3\",\n    connection_options = {\n        \"path\": \"s3://dataengineering-youtube-cleansed-aditireddy/youtube/raw_statistics/\",\n        \"partitionKeys\": [\"region\"]\n    },\n    format = \"parquet\",\n    transformation_ctx = \"datasink4\"\n)\n\n\n################## Commit Job ##################\njob.commit()\n"
+}
